@@ -43,7 +43,6 @@ jobs:
     - name: Clone Source Code
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         
     - name: Update Feeds
