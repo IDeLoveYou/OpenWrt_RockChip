@@ -134,7 +134,7 @@ jobs:
         make toolchain/compile -j$(nproc) || make toolchain/compile -j$(nproc)
         make target/compile -j$(nproc) || make target/compile -j$(nproc) IGNORE_ERRORS=1
         make diffconfig
-        make package/compile -j$(nproc) IGNORE_ERRORS=1 || make package/compile -j$(nproc) IGNORE_ERRORS=1
+        make package/compile -j$(nproc) V=s IGNORE_ERRORS=1 || make package/compile -j$(nproc) V=s IGNORE_ERRORS=1
         make package/index
         cd $OPENWRTROOT/bin/packages/*
         PLATFORM=$(basename `pwd`)
@@ -201,7 +201,7 @@ jobs:
       uses: softprops/action-gh-release@master
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
           name: ${{ steps.tag.outputs.release_date }} openwrt-rockchip-armv8-docker 下载固件
           tag_name: ${{ steps.tag.outputs.release_tag }}
