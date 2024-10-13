@@ -43,7 +43,7 @@ jobs:
     - name: Clone Source Code
       run: |
         df -hT $PWD
-        cd lede-rockchip
+        cd /home/mono/work/route/h68k/lede-rockchip
         
     - name: Update Feeds
       id: update
