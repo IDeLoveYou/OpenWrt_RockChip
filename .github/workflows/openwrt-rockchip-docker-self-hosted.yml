@@ -43,7 +43,7 @@ jobs:
     - name: Clone Source Code
       run: |
         df -hT $PWD
-        cd openwrt
+        cd lede-rockchip
         
     - name: Update Feeds
       id: update
